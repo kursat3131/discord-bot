@@ -25,6 +25,7 @@ const client = new Client({
 });
 
 const PREFIX = '!';
+let isOnlineMode = false;
 
 // Bot logging system
 const logFile = path.join(__dirname, 'bot_log.txt');
@@ -350,7 +351,22 @@ client.on('messageCreate', async (message) => {
                 break;
 
             // HELP COMMAND
-            case 'help':
+            case 'mod':
+    if (!args.length) {
+        return message.reply('Lütfen mod seçin: `!mod offline` veya `!mod online`');
+    }
+    
+    if (args[0].toLowerCase() === 'offline') {
+        isOnlineMode = false;
+        return message.reply('Bot offline moda alındı.');
+    } else if (args[0].toLowerCase() === 'online') {
+        isOnlineMode = true;
+        return message.reply('Bot online moda alındı.');
+    } else {
+        return message.reply('Geçersiz mod! Kullanım: `!mod offline` veya `!mod online`');
+    }
+    break;
+case 'help':
             case 'yardım':
                 await handleHelp(message);
                 break;
@@ -886,6 +902,9 @@ function checkRateLimit(userId) {
 
 // GEMINI AI CHATBOT FUNCTIONS
 async function handleChat(message, args) {
+    if (!isOnlineMode) {
+        return message.reply('Bot şu an offline modda, AI özellikleri kullanılamaz.');
+    }
     if (!args.length) {
         const context = getConversationContext(message.author.id);
         if (context.lastTopic) {
@@ -899,6 +918,9 @@ async function handleChat(message, args) {
 }
 
 async function handleNaturalChat(message) {
+    if (!isOnlineMode) {
+        return message.reply('Bot şu an offline modda, AI özellikleri kullanılamaz.');
+    }
     // Remove the mention and get just the content
     let input = message.content.replace(/<@!?\d+>/g, '').trim();
     

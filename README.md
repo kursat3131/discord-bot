@@ -48,9 +48,15 @@ Bot durumunu, istatistikleri ve komutları görüntüleyebilirsiniz.
 ## 🚀 Kurulum
 
 ### Gereksinimler
+
+#### Online Mod
 - Node.js 18+
 - Discord Bot Token
 - Google Gemini API Key
+
+#### Offline Mod
+- Node.js 18+
+- Discord Bot Token
 
 ### Adımlar
 

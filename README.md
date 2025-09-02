@@ -4,7 +4,7 @@
 
 ## 🌐 Live Dashboard
 
-**Web Dashboard:** [https://kursa.github.io/discord-bot-new](https://kursa.github.io/discord-bot-new)
+**Web Dashboard:** [https://kursat3131.github.io/discord-bot](https://kursat3131.github.io/discord-bot)
 
 Bot durumunu, istatistikleri ve komutları görüntüleyebilirsiniz.
 
@@ -56,8 +56,8 @@ Bot durumunu, istatistikleri ve komutları görüntüleyebilirsiniz.
 
 1. **Repository'yi klonlayın:**
 ```bash
-git clone https://github.com/kursa/discord-bot-new.git
-cd discord-bot-new
+git clone https://github.com/kursat3131/discord-bot.git
+cd discord-bot
 ```
 
 2. **Bağımlılıkları yükleyin:**

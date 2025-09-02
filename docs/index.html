@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="bot-info">
+                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Bot Avatar" class="bot-avatar" id="botAvatar">
+                    <div>
+                        <h1 id="botName">Discord Bot Dashboard</h1>
+                        <p class="bot-tagline">Çok Fonksiyonlu Discord Botu</p>
+                    </div>
+                </div>
+                <div class="status-indicator">
+                    <div class="status-dot loading" id="statusDot"></div>
+                    <span id="statusText">Kontrol Ediliyor...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="serverCount">-</h3>
+                    <p>Sunucu</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="userCount">-</h3>
+                    <p>Kullanıcı</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="uptime">-</h3>
+                    <p>Çalışma Süresi</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="memoryUsage">-</h3>
+                    <p>RAM Kullanımı</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bot Invite -->
+        <div class="invite-section">
+            <h2><i class="fas fa-plus-circle"></i> Botu Sunucuna Ekle</h2>
+            <p>Aşağıdaki butona tıklayarak botu Discord sunucuna ekleyebilirsin!</p>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&permissions=8&scope=bot" 
+               class="invite-btn" target="_blank">
+                <i class="fab fa-discord"></i> Botu Davet Et
+            </a>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2><i class="fas fa-cogs"></i> Bot Durumu</h2>
+            <div class="status-info">
+                <div class="status-card online" id="statusCard">
+                    <div class="status-header">
+                        <i class="fas fa-circle" id="statusIcon"></i>
+                        <span id="statusTitle">Bot Durumu</span>
+                    </div>
+                    <p id="statusDescription">Bot durumu kontrol ediliyor...</p>
+                    <small id="lastCheck">Son kontrol: -</small>
+                </div>
+            </div>
+            
+            <div class="server-info">
+                <h3><i class="fas fa-info-circle"></i> Sunucu Bilgileri</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Hosting:</span>
+                        <span class="info-value">24/7 Aktif</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Bölge:</span>
+                        <span class="info-value">Türkiye</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Ping:</span>
+                        <span class="info-value" id="botPing">- ms</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Versiyon:</span>
+                        <span class="info-value">v2.0.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-section">
+            <h2><i class="fas fa-star"></i> Bot Özellikleri</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Müzik Sistemi</h3>
+                    <p>YouTube'dan müzik çalma, ses kontrolü, kuyruk sistemi</p>
+                    <div class="feature-commands">
+                        <code>!music şarkı_adı</code>
+                        <code>!volume 80</code>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Watch Party</h3>
+                    <p>YouTube Together ile birlikte video izleme</p>
+                    <div class="feature-commands">
+                        <code>!party video_linki</code>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Sohbet</h3>
+                    <p>Gemini AI ile akıllı sohbet ve kişilik sistemi</p>
+                    <div class="feature-commands">
+                        <code>!chat merhaba</code>
+                        <code>!personality komik</code>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Moderasyon</h3>
+                    <p>Kick, ban, mute, kanal yönetimi</p>
+                    <div class="feature-commands">
+                        <code>!kick @kullanıcı</code>
+                        <code>!clear 10</code>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Matematik</h3>
+                    <p>Hesap makinesi, rastgele sayı, karekök</p>
+                    <div class="feature-commands">
+                        <code>!calc 2+2*3</code>
+                        <code>!random 1 100</code>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Eğlence</h3>
+                    <p>Şaka, 8ball, zar, avatar gösterme</p>
+                    <div class="feature-commands">
+                        <code>!joke</code>
+                        <code>!8ball soru?</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commands -->
+        <div class="commands-section">
+            <h2><i class="fas fa-terminal"></i> Tüm Komutlar</h2>
+            <div class="commands-grid">
+                <div class="command-category">
+                    <h3>🎵 Müzik Komutları</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>!music &lt;şarkı&gt;</code>
+                            <span>Müzik çal</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!stop</code>
+                            <span>Müziği durdur</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!volume &lt;1-100&gt;</code>
+                            <span>Ses seviyesi</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!party &lt;link&gt;</code>
+                            <span>Watch party</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>🤖 AI Sohbet</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>!chat &lt;mesaj&gt;</code>
+                            <span>AI ile sohbet</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!personality &lt;tip&gt;</code>
+                            <span>Kişilik ayarı</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!memory</code>
+                            <span>Hafıza durumu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>🛡️ Moderasyon</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>!kick @kullanıcı</code>
+                            <span>Kullanıcı at</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!ban @kullanıcı</code>
+                            <span>Kullanıcı yasakla</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!clear &lt;sayı&gt;</code>
+                            <span>Mesaj sil</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!mute @kullanıcı</code>
+                            <span>Kullanıcı sustur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="command-category">
+                    <h3>🎮 Eğlence</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>!joke</code>
+                            <span>Şaka yap</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!8ball &lt;soru&gt;</code>
+                            <span>Sihirli 8 top</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!dice</code>
+                            <span>Zar at</span>
+                        </div>
+                        <div class="command-item">
+                            <code>!avatar @kullanıcı</code>
+                            <span>Avatar göster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Discord Bot Dashboard. Tüm hakları saklıdır.</p>
+            <p>Son güncelleme: <span id="lastUpdate">-</span></p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
